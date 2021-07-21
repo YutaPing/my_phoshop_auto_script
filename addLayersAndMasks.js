@@ -17,26 +17,28 @@ var docLeng = app.documents.length;
 
 //ドキュメントがなければ実行　A4サイズ（ピクセル単位）でベース画像を作成
 if (docLeng == 0) {
-var docObj = app.documents.add(2894,4093);//backgournd作成a4 pixel
+var docObj = app.documents.add(2894,4093);//backgournd作成a4 pixel単位
 var layObj = docObj.artLayers.add();//layerを追加
 }
 
-// layObj.kind = LayerKind.TEXT;//text layer 追加
-// layObj.textItem.contents = "Love and Peace";//layerの中身
-// layObj.textItem.size =  36;//文字のサイズ
-//
 
-// var imagePaths = ['c:\\img\\04.jpg','c:\\img\\03.jpg','c:\\img\\02.jpg'];
-var folder = Folder.selectDialog('画像フォルダを選択');
+// ディレクトリの中の画像をガバっと全部開く
+// var folder = Folder.selectDialog('画像フォルダを選択');
+// if(folder)
+// {
+//   var files = folder.getFiles(/jpe?g/);
+//   for(var i = 0; i < files.length; i++ ) {
+//       addLayersAndMasks(files[i]);
+//   }
+// }
 
-if(folder)
-{
-  var files = folder.getFiles(/jpe?g/);
-  for(var i = 0; i < files.length; i++ ) {
-      addLayersAndMasks(files[i]);
-  }
 
+//フォルダから1枚画像を取得
+var fObj= File.openDialog('ファイルを選択');
+if(fObj){
+addLayersAndMasks(fObj);
 }
+
 
 
 function addLayersAndMasks(path){
