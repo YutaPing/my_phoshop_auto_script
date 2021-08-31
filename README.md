@@ -29,3 +29,7 @@ scriptlistener
 - レイヤーの数を取得
 - レイヤーの数だけループしてapply layer mask
 - 仕上げ
+
+## select-curv.js
+
+-全てのレイヤー（デフォのbackgroundを除く）に対してちょっと明るめのトーンカーブをかける
